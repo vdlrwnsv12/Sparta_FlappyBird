@@ -5,8 +5,9 @@ using UnityEngine;
 public class FollowCam : MonoBehaviour
 {
     public Transform target;
-    [SerializeField]
-    float offsetX;
+    
+    public float offsetX;
+    public Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class FollowCam : MonoBehaviour
             return;
         Vector3 pos = transform.position;
         pos.x = target.position.x + offsetX;
+        transform.position = pos;
 
     }
 }

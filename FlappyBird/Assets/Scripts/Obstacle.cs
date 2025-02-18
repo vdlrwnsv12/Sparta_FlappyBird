@@ -16,6 +16,13 @@ public class Obstacle : MonoBehaviour
 
     public float widthPadding = 4f;
 
+    GameManager gameManager;
+
+    public void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
+
     public Vector3 SetRandomPlace(Vector3 lastPosition, int obstacleCount)
     {
         float holeSize = Random.Range(holeSizeMin, holeSizeMax);
@@ -29,6 +36,13 @@ public class Obstacle : MonoBehaviour
         transform.position = placePosition;
 
         return placePosition;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player player = collision.GetComponent<Player>();
+        if (player != null)
+            gameManager.AddScore(1);
     }
 
 }
