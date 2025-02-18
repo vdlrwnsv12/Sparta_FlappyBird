@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
         get { return gameManager; }
     }
 
+    UIManager uiManager;
+
+    public UIManager UIManager
+    {
+        get { return uiManager;  }
+    }
+
     private int currentScore = 0;
 
     private void Update()
@@ -25,13 +32,19 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
+        uiManager = FindObjectOfType<UIManager>();
+
+    }
+    private void Start()
+    {
+        uiManager.UpdateScore(0);
     }
 
     public void GameOver()
     {
         isGameOver = true;
-
         Debug.Log("Game Over");
+        uiManager.SetRestart();
         Time.timeScale = 0;
     }
 
@@ -45,7 +58,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int score)
     {
         currentScore += score;
-
+        uiManager.UpdateScore(currentScore);
         Debug.Log("Score: " + currentScore);
     }
 
