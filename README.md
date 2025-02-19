@@ -9,6 +9,10 @@
 게임이 끝나면 timescale 0 으로 멈추고 아무거나 누르면 재시작
 게임이 끝났을때 esc를 누르면 메타버스로
 
-![Sparta](https://github.com/user-attachments/assets/184bcc6b-1bcb-4bc2-9903-aa3897fa7db7)
+
+
+https://github.com/user-attachments/assets/82cb8d6b-77c5-4827-93a7-6d33082dafbd
+
+
 
 <H1>GOOD</H1>
