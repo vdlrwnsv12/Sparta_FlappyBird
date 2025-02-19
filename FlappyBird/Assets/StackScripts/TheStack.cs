@@ -3,26 +3,26 @@ using UnityEngine;
 public class TheStack : MonoBehaviour
 {
     // Const Value
-    private const float BoundSize = 3.5f;
-    private const float MovingBoundsSize = 3f;
-    private const float StackMovingSpeed = 5.0f;
-    private const float BlockMovingSpeed = 3.5f;
-    private const float ErrorMargin = 0.1f;
+    private const float BoundSize = 3.5f; //블록의 전체 범위 크기
+    private const float MovingBoundsSize = 3f; //블록의 최대 이동거리
+    private const float StackMovingSpeed = 5.0f; //스택 전체 이동속도
+    private const float BlockMovingSpeed = 3.5f; // 새 블록의 이동속도
+    private const float ErrorMargin = 0.1f; //블록의 오차범위
 
-    public GameObject originBlock = null;
+    public GameObject originBlock = null; 
 
-    private Vector3 prevBlockPosition;
-    private Vector3 desiredPosition;
-    private Vector3 stackBounds = new Vector2(BoundSize, BoundSize);
+    private Vector3 prevBlockPosition; //이전 블록 위치
+    private Vector3 desiredPosition; //전체 스택 이동위치
+    private Vector3 stackBounds = new Vector2(BoundSize, BoundSize); //현재 블록의 크 
 
-    Transform lastBlock = null;
-    float blockTransition = 0f;
-    float secondaryPosition = 0f;
+    Transform lastBlock = null; //마지막으로 배치된 블/
+    float blockTransition = 0f;//블록의 이동상태 저장 
+    float secondaryPosition = 0f;//X,Z축을 번갈아가며 이동설정
 
-    int stackCount = -1;
-    int comboCount = 0;
+    int stackCount = -1; //현재 쌓인 블록 개/
+    int comboCount = 0; //정확하게 블록을 놓았을때 연속 횟
 
-    public Color prevColor;
+    public Color prevColor; 
     public Color nextColor;
 
     bool isMovingX = true;
