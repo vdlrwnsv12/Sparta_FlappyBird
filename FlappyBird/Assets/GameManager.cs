@@ -24,10 +24,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isGameOver == true && Input.anyKeyDown)
+        if (isGameOver == true && Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape))
         {
             RestartGame();
         }
+        if(isGameOver == true &&Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Playground");
+            Time.timeScale = 1;
+        }
+
     }
     private void Awake()
     {
@@ -61,5 +67,5 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateScore(currentScore);
         Debug.Log("Score: " + currentScore);
     }
-
+    
 }
