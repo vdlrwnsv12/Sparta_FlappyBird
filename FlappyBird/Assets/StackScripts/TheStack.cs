@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class TheStack : MonoBehaviour
 {
     // Const Value
@@ -19,13 +19,13 @@ public class TheStack : MonoBehaviour
     float blockTransition = 0f;//블록의 이동상태 저장 
     float secondaryPosition = 0f;//X,Z축을 번갈아가며 이동설정
 
-    int stackCount = -1; //현재 쌓인 블록 개/
-    int comboCount = 0; //정확하게 블록을 놓았을때 연속 횟
+    int stackCount = -1; //현재 쌓인 블록 개수
+    int comboCount = 0; //정확하게 블록을 놓았을때 연속 횟수
 
-    public Color prevColor; 
-    public Color nextColor;
+    public Color prevColor; // 블록의 색 조절
+    public Color nextColor;// 블록의 색 조절
 
-    bool isMovingX = true;
+    bool isMovingX = true; //블ㄹ록이 x 축, z축으로 이동 결정
 
     void Start()
     {
@@ -54,6 +54,7 @@ public class TheStack : MonoBehaviour
             {
                 // 게임 오버
                 Debug.Log("GameOver");
+                SceneManager.LoadScene("Playground");
             }
         }
 
@@ -65,7 +66,7 @@ public class TheStack : MonoBehaviour
     {
         // 이전블럭 저장
         if (lastBlock != null)
-            prevBlockPosition = lastBlock.localPosition;
+            prevBlockPosition = lastBlock.localPosition;//이전 블록 존재할 경우 이전 블록의 위치를 저장
 
         GameObject newBlock = null;
         Transform newTrans = null;
